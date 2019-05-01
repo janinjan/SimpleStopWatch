@@ -32,12 +32,13 @@ class ViewController: UIViewController {
     @objc func runTimeAction() {
         runTime += 0.1
         updateDisplay()
+        playButton.isEnabled = false
     }
     
     @IBAction func didTapPause(_ sender: UIButton) {
         timer.invalidate()
+        playButton.isEnabled = true
     }
-    
     
     // MARK: - Methods
     override func viewDidLoad() {
