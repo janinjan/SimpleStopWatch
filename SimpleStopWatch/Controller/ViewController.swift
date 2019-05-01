@@ -33,11 +33,13 @@ class ViewController: UIViewController {
         runTime += 0.1
         updateDisplay()
         playButton.isEnabled = false
+        pauseButton.isEnabled = true
     }
     
     @IBAction func didTapPause(_ sender: UIButton) {
         timer.invalidate()
         playButton.isEnabled = true
+        pauseButton.isEnabled = false
     }
     
     // MARK: - Methods
