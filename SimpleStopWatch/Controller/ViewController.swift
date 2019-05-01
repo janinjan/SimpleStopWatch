@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
     var timer = Timer()
     var runTime: Float = 0.0
+    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
     
     // MARK: - Outlets
     @IBOutlet weak var textView: UILabel!
@@ -46,6 +47,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         AddBorderToLayers()
+        backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+            UIApplication.shared.endBackgroundTask((self.backgroundTaskIdentifier!))
+        })
     }
     
     private func AddBorderToLayers() {
